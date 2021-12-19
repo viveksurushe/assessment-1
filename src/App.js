@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import CarCard from "./components/CarCard/index";
+import { Cars } from "./data";
+import Grid from "@mui/material/Grid";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 style={{textAlign: 'center'}}>Cars</h1>
+      <Grid container direction="row" justifyContent="space-around">
+        {Cars.map((car) => (
+          <Grid style={{margin: '10px 5px'}} key={car._id} item>
+            <CarCard {...car} />
+          </Grid>
+        ))}
+      </Grid>
+    </>
   );
 }
 
